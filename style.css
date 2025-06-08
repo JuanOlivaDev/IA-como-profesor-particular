@@ -1,0 +1,389 @@
+/* Importar fuentes de Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:ital,wght@1,400&family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  /* Definición de colores base */
+  --color-primary-lightest: #e8f3f7; /* Para bloques principales, base */
+  --color-primary-lighter: #d6e7ef; /* Para bloques pares o subtítulos */
+  --color-primary-medium: #bcd7e5; /* Para el examen y ejemplos intermedios */
+  --color-primary-darker: #a1c1d8; /* Para bloques de interacción */
+  --color-primary-darkest: #89abcb; /* Quizás para el header o elementos de mayor contraste */
+  --color-accent-blue: #7997be; /* Otro azul para acentos, si es necesario, o fondo del header */
+  --color-note-green-light: #d4f4e9; /* Nuevo color verde-agua para las notas */
+
+  --color-border: #333; /* Borde oscuro para los bloques */
+  /* Sombra más pronunciada para efecto de profundidad */
+  --shadow-effect: 0 8px 16px rgba(0, 0, 0, 0.25),
+    inset 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más grande y más fuerte */
+  /* Sombra para bloques anidados (ejemplos) */
+  --nested-shadow-effect: 0 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.08); /* Sombra más sutil */
+}
+
+/* --- Reseteo y estilos generales del cuerpo --- */
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif; /* Fuente general más legible */
+  line-height: 1.6; /* Espaciado de línea general para párrafos */
+  background-color: #f4f7f6; /* Un fondo muy suave para el body, puedes cambiarlo si quieres */
+  color: black; /* ¡Todos los textos ahora son negros! */
+  padding-top: 80px; /* Espacio para el header sticky */
+  font-size: 1.1rem; /* Aumentado el tamaño de fuente para párrafos */
+}
+
+/* Contenedor principal para centrar el contenido */
+.main-content-wrapper {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px; /* Padding horizontal para evitar que el contenido toque los bordes */
+}
+
+/* --- Estilos del Header --- */
+header {
+  background-color: var(
+    --color-accent-blue
+  ); /* Usamos uno de los nuevos azules para el header */
+  color: white; /* El color blanco del header se mantiene para contraste */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 2.5rem; /* Tamaño de letra ajustado */
+  font-weight: 700;
+  font-family: "Roboto", sans-serif; /* Fuente robusta para el header */
+  position: fixed; /* Header sticky */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para el header */
+}
+
+/* --- Estilos de los bloques de sección principales --- */
+.section-block {
+  background-color: var(
+    --color-primary-lightest
+  ); /* Color unificado para todos los bloques principales */
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-effect); /* Sombra más pronunciada */
+  padding: 1.5rem;
+  margin-bottom: 1.5rem; /* Reducido el espacio entre bloques */
+  line-height: 1.6;
+  color: black; /* Asegura que el texto dentro del section-block sea negro */
+}
+
+/* No necesitamos nth-of-type(even) o (3) para section-block si todos tienen el mismo color base */
+
+/* Estilos para los H2 generales dentro de section-block (excepto el del examen que lo definimos abajo) */
+.section-block > h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.3;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Estilos de Títulos H3 (para los títulos de Matemática, Física, etc.) --- */
+h3 {
+  text-align: left;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  background-color: var(
+    --color-primary-lighter
+  ); /* Nuevo color para los H3 de ejemplos */
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-effect);
+  padding: 1.2rem 1.5rem;
+  color: black;
+}
+
+/* Ajuste de espaciado entre párrafos */
+.parrafos p {
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+  line-height: 1.6;
+  color: black;
+}
+
+/* Estilo para las listas dentro de los párrafos */
+.parrafos ul {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+  padding-left: 1.5em;
+  color: black;
+  font-weight: normal;
+}
+
+.parrafos ul li {
+  margin-bottom: 0.5em;
+}
+
+/* --- Estilos específicos para la clase .nota (ahora con el color diferente) --- */
+.nota {
+  font-family: "Open Sans", sans-serif; /* Fuente más común para la nota */
+  font-style: italic; /* Cursiva */
+  font-size: 1.2rem; /* Más grande que los párrafos comunes */
+  color: black; /* Color negro */
+  background-color: var(
+    --color-note-green-light
+  ); /* ¡Nuevo color verde-agua para las notas! */
+  padding: 1rem;
+  border-radius: 15px;
+  margin-top: 1.5rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-effect);
+}
+
+/* --- Estilos para la sección de ejemplos (Matemática, Física, etc.) --- */
+.ejemplo-contenido {
+  background-color: var(
+    --color-primary-medium
+  ); /* Nuevo color para los bloques de ejemplo */
+  margin-top: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--nested-shadow-effect);
+  padding: 1.5rem;
+  color: black;
+}
+
+.ejemplo-contenido h3.ejemplo-titulo {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.ejemplo-contenido p {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  color: black;
+}
+
+.ejemplo-contenido .forma.incorrecta {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.ejemplo-contenido .forma.incorrecta b {
+  color: black;
+}
+
+.ejemplo-contenido .forma.correcta {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.ejemplo-contenido .forma.correcta b {
+  color: black;
+}
+
+.ejemplo-contenido .ejemplo {
+  background-color: #f0f0f0; /* Color gris suave, mantenido para el contraste con el ejemplo de código */
+  border: 1px dashed #999;
+  padding: 10px;
+  font-family: "Roboto Mono", monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: black;
+}
+
+/* --- Estilos para la sección de Examen --- */
+.examen-contenedor {
+  background-color: var(
+    --color-primary-lightest
+  ); /* Mismo color que section-block para unificar */
+  margin-top: 0;
+  border-radius: 15px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--nested-shadow-effect);
+  padding: 1.5rem;
+  color: black;
+}
+
+/* Estilo específico para el h2 dentro de .examen-contenedor (centrado) */
+.examen-contenedor h2 {
+  text-align: center; /* Centrado como pediste */
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Nuevo estilo para los bloques de interacción con la IA en la sección del examen */
+.interaccion-ejemplo {
+  background-color: var(
+    --color-primary-darker
+  ); /* Mismo color que las notas para destacar la interacción */
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--nested-shadow-effect);
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.interaccion-ejemplo p {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.interaccion-ejemplo p b {
+  color: black;
+}
+
+.examen {
+  background-color: var(
+    --color-primary-medium
+  ); /* Nuevo color para el bloque del examen en sí */
+  border-radius: 15px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--nested-shadow-effect);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  color: black;
+}
+
+.examen p {
+  margin-bottom: 0.8em;
+  color: black;
+}
+
+.examen p i {
+  color: black;
+}
+
+.examen p b {
+  color: black;
+}
+
+.examen ol.preguntas {
+  list-style-type: decimal;
+  padding-left: 1.8em;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: black;
+  font-weight: normal;
+}
+
+.examen ol.preguntas li {
+  margin-bottom: 1em;
+  font-weight: normal;
+  color: black;
+}
+
+.examen ul.opciones {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  color: black;
+}
+
+.examen ul.opciones li {
+  margin-bottom: 0.3em;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+  header {
+    font-size: 2.2rem;
+    padding: 15px 0;
+  }
+
+  .section-block > h2,
+  .examen-contenedor h2 {
+    font-size: 1.7rem;
+    padding: 0.8rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    padding: 1rem 1rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  .main-content-wrapper {
+    margin: 15px auto;
+    padding: 0 10px;
+  }
+
+  .section-block,
+  .examen-contenedor,
+  .ejemplo-contenido,
+  .examen,
+  .nota,
+  .interaccion-ejemplo {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nota {
+    font-size: 1.1rem;
+  }
+
+  .ejemplo-contenido h3.ejemplo-titulo {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1.8rem;
+    padding: 10px 0;
+  }
+
+  .section-block > h2,
+  .examen-contenedor h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  body {
+    padding-top: 60px;
+    font-size: 0.95rem;
+  }
+
+  .section-block,
+  .examen-contenedor,
+  .ejemplo-contenido,
+  .examen,
+  .nota,
+  .interaccion-ejemplo {
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+  }
+
+  .nota {
+    font-size: 1rem;
+  }
+
+  .examen ol.preguntas {
+    padding-left: 1.5em;
+  }
+
+  .examen ul.opciones {
+    padding-left: 1em;
+  }
+}
