@@ -105,6 +105,7 @@ h3 {
   margin-top: 0.8em;
   line-height: 1.6;
   color: black;
+  text-align: justify;
 }
 
 /* Estilo para las listas dentro de los párrafos */
@@ -164,6 +165,7 @@ h3 {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   color: black;
+  text-align: justify;
 }
 
 .ejemplo-contenido .forma.incorrecta {
@@ -239,6 +241,7 @@ h3 {
 .interaccion-ejemplo p {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
+  text-align: justify;
 }
 
 .interaccion-ejemplo p b {
@@ -260,6 +263,7 @@ h3 {
 .examen p {
   margin-bottom: 0.8em;
   color: black;
+  text-align: justify;
 }
 
 .examen p i {
